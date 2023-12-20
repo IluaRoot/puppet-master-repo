@@ -15,4 +15,6 @@ node slave2.puppet{
   file { '/root/personal':
     ensure => file
  }
+
+ notify { "Runnong os ${facts['os']['name']} version ${facts['os']['release']['full']}": }
 }
