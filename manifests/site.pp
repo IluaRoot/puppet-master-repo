@@ -6,7 +6,7 @@ node default{
 }
 
 node slave1.puppet{
-  Package { ensure +> 'installed' }
+  Package { ensure => 'installed' }
   package { 'screen':}
   package ['vim':}
 }
@@ -14,7 +14,7 @@ node slave1.puppet{
 node slave2.puppet{
   file { '/root/personal':
     ensure => file
- }
+}
 
  notify { "Runnong os ${facts['os']['name']} version ${facts['os']['release']['full']}": }
 }
