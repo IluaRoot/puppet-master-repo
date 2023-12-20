@@ -8,7 +8,7 @@ node default{
 node slave1.puppet{
   Package { ensure => 'installed' }
   package { 'screen':}
-  package {'vim':}
+  package { 'vim':}
 }
 
 node slave2.puppet{
