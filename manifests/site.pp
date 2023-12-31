@@ -1,20 +1,21 @@
-node default{
-  file { '/root/README':
-    ensure => file,
-    content => 'Hello, world!'
- }
+class install_nginx {
+  package { 'nginx':
+    ensure => installed,
+    name => 'nginx',
+    provider => 'yum',
+    }
+}
+class reload_nginx {
+  service { 'nginx':
+    ensure => running,
+    enable => true,
+  }
 }
 
-node slave1.puppet{
-  Package { ensure => 'installed' }
-  package { 'screen':}
-  package { 'vim':}
+node 'slave1.puppet' {
+  include install_nginx, reload_nginx
 }
 
-node slave2.puppet{
-  file { '/root/personal':
-    ensure => file
-}
-
- notify { "Runnong os ${facts['os']['name']} version ${facts['os']['release']['full']}": }
+node 'slave2.puppet' {
+  include install_nginx, reload_nginx
 }
