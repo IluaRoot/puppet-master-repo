@@ -15,7 +15,7 @@ class firewall {
 }
 
 node 'slave1.puppet' {
-    include { [install_nginx]: }
+    class { "nstall_nginx": }
     file { '/vagrant/conf.f/static.conf':
        ensure => 'present',
        source => '/vagrant/conf.f/static.conf',
