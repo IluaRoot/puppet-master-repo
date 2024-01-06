@@ -24,10 +24,8 @@ node 'slave1.puppet' {
     -> file { '/etc/nginx/nginx.conf':
        ensure => present,
        }
-    -> file_line { 'Disable default nginx site':
-       path => '/etc/nginx/nginx/conf',
-       line => 'listen 80 default_server;',
-       match => '# listen 80 default_server;',
+    -> exec { 'Disable default site': 
+       command => '/bin/sed -i \'s/listen       80 default_server;/#listen       80 default_server;/\' /etc/nginx/nginx/conf',    
     }
     service { 'nginx':
     ensure => running,
