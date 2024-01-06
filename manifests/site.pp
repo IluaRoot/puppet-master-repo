@@ -21,7 +21,7 @@ node 'slave1.puppet' {
 #       source => '/vagrant/conf.f/static.conf',
 #       path => "/etc/nginx/conf.d/",
 #  }
-  -> include reload_nginx
+#  -> include reload_nginx
 }
 
 node 'slave2.puppet' {
