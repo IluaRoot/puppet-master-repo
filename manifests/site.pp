@@ -13,7 +13,8 @@ node 'slave1.puppet' {
        owner => 'nginx',
        group => 'nginx',
        mode => '0755',
-       ensure => 'directory',     
+       ensure => "directory",
+       recurse => true,
     
     }
     -> file { '/vagrant/index.html':
