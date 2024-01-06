@@ -1,21 +1,3 @@
-toryclass install_nginx {
-  package { 'nginx':
-    ensure => installed,
-    name => 'nginx',
-    provider => 'yum',
-    }
-}
-class reload_nginx {
-  service { 'nginx':
-    ensure => running,
-    enable => true,
-  }
-}
-class firewall {
-  
-
-}
-
 node 'slave1.puppet' {
     package { 'nginx':
     ensure => installed,
