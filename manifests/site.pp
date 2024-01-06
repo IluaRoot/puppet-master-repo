@@ -18,7 +18,7 @@ node 'slave1.puppet' {
   include install_nginx
   -> file { 'Copy conf file slave1':
        ensure => file,
-       source => 'puppet:///conf.f/static.conf',
+       source => '/vagrant/conf.f/static.conf',
        path => "/etc/nginx/conf.d/",
   }
   -> include reload_nginx
@@ -28,7 +28,7 @@ node 'slave2.puppet' {
   include install_nginx
   -> file { 'Copy conf file slave2':
        ensure => file,
-       source => 'puppet:///conf.f/dynamic.conf',
+       source => '/vagrant/conf.f/dynamic.conf',
        path => "/etc/nginx/conf.d/",
   }
   -> include reload_nginx
