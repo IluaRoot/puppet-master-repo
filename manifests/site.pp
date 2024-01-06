@@ -1,4 +1,5 @@
 node 'slave1.puppet' {
+include stdlib
     package { 'nginx':
     ensure => installed,
     name => 'nginx',
