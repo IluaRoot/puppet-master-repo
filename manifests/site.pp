@@ -1,4 +1,4 @@
-class install_nginx {
+toryclass install_nginx {
   package { 'nginx':
     ensure => installed,
     name => 'nginx',
@@ -23,7 +23,7 @@ node 'slave1.puppet' {
     provider => 'yum',
     }
     -> file { 'Copy conf file slave1':
-       ensure => file,
+       ensure => directory,
        source => '/vagrant/conf.f/static.conf',
        path => "/etc/nginx/conf.d/",
   }
