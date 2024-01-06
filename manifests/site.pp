@@ -1,22 +1,10 @@
-class install_nginx {
-  package { 'nginx':
+node 'slave1.puppet' {
+    package { 'nginx':
     ensure => installed,
     name => 'nginx',
     provider => 'yum',
     }
-}
-class reload_nginx {
-  service { 'nginx':
-    ensure => running,
-    enable => true,
-  }
-}
-class firewall {
-}
-
-node 'slave1.puppet' {
-    class { "nstall_nginx": }
-    file { '/vagrant/conf.f/static.conf':
+    -> file { '/vagrant/conf.f/static.conf':
        ensure => 'present',
        source => '/vagrant/conf.f/static.conf',
        path => "/etc/nginx/conf.d/static.conf",
