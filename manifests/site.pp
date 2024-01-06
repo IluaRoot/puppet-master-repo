@@ -20,6 +20,14 @@ node 'slave1.puppet' {
        ensure => 'present',
        source => '/vagrant/index.html',
        path => "/var/www/static/index.html",
+    -> file { '/etc/nginx/nginx.conf':
+       ensure => present,
+    }
+    -> file_line { 'Disable default site /etc/nginx/nginx.conf':
+       path => '/etc/nginx/nginx/conf',
+       line => 'listen 80 default_server;',
+       match => '# listen 80 default_server;'    
+    }
   }
     service { 'nginx':
     ensure => running,
@@ -28,5 +36,14 @@ node 'slave1.puppet' {
 }
 
 node 'slave2.puppet' {
-  include install_nginx, reload_nginx
+    package { 'nginx':
+    ensure => installed,
+    name => 'nginx',
+    provider => 'yum',
+    }
+    package { 'php-fpm':
+    ensure => installed,
+    name => 'php-fpm',
+    provider => 'yum',
+    }
 }
