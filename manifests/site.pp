@@ -20,6 +20,7 @@ node 'slave1.puppet' {
        ensure => 'present',
        source => '/vagrant/index.html',
        path => "/var/www/static/index.html",
+    }
     -> file { '/etc/nginx/nginx.conf':
        ensure => present,
     }
