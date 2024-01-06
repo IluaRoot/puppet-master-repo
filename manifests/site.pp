@@ -10,7 +10,7 @@ node 'slave1.puppet' {
        path => "/etc/nginx/conf.d/static.conf",
   }
     -> exec { "Create /var/www/static":
-       creates => /var/www/static,
+       creates => '/var/www/static',
        command => "mkdir -p /var/www/static",
        path => /var/www/static,
    }
