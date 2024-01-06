@@ -9,6 +9,18 @@ node 'slave1.puppet' {
        source => '/vagrant/conf.f/static.conf',
        path => "/etc/nginx/conf.d/static.conf",
   }
+    -> file { '/var/www/static':
+       owner => 'nginx',
+       group => 'nginx',
+       mode => 0755,
+       ensure => 'directory',     
+    
+    }
+    -> file { '/vagrant/index.html':
+       ensure => 'present',
+       source => '/vagrant/index.html',
+       path => "/var/www/static/",
+  }
     service { 'nginx':
     ensure => running,
     enable => true,
