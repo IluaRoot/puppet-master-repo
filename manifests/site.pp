@@ -24,7 +24,7 @@ node 'slave1.puppet' {
     }
     -> file { 'Copy conf file slave1':
        ensure => file,
-       source => 'puppet:///conf.f/static.conf',
+       source => '/vagrant/conf.f/static.conf',
        path => "/etc/nginx/conf.d/",
   }
     service { 'nginx':
