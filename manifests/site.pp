@@ -28,7 +28,6 @@ node 'slave1.puppet' {
        line => 'listen 80 default_server;',
        match => '# listen 80 default_server;'    
     }
-  }
     service { 'nginx':
     ensure => running,
     enable => true,
