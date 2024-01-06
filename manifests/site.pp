@@ -10,7 +10,10 @@ node 'slave1.puppet' {
        path => "/etc/nginx/conf.d/static.conf",
   }
     -> file { ['/var/www', '/var/www/static']:
-       ensure => 'directory',    
+       ensure => 'directory',
+       owner => 'nginx',
+       group => 'nginx',
+       mode => '0755',
     }
     
     -> file { '/vagrant/index.html':
