@@ -12,7 +12,7 @@ node 'slave1.puppet' {
     -> file { '/var/www/static':
        owner => 'nginx',
        group => 'nginx',
-       mode => 0755,
+       mode => '0755',
        ensure => 'directory',     
     
     }
