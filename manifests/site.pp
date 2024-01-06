@@ -27,7 +27,7 @@ node 'slave1.puppet' {
        file_line { 'Disable default nginx site':
        path => '/etc/nginx/nginx/conf',
        line => 'listen 80 default_server;',
-       match => '# listen 80 default_server;'    
+       match => '# listen 80 default_server;',
     }
     service { 'nginx':
     ensure => running,
