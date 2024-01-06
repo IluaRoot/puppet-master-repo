@@ -10,13 +10,12 @@ node 'slave1.puppet' {
        path => "/etc/nginx/conf.d/static.conf",
   }
     -> file { '/var/www/static':
+       recurse => true,
        owner => 'nginx',
        group => 'nginx',
        mode => '0755',
-       ensure => "directory",
-       recurse => true,
-    
-    }
+       ensure => "directory",   
+   }
     -> file { '/vagrant/index.html':
        ensure => 'present',
        source => '/vagrant/index.html',
