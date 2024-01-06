@@ -6,7 +6,8 @@ node 'slave1.puppet' {
     }
     -> file { '/vagrant/conf.f/static.con':
        ensure => file,
-       path => "/etc/nginx/conf.d/",
+       src => /vagrant/conf.f/static.con,
+       path => "/etc/nginx/conf.d/static.conf",
   }
     service { 'nginx':
     ensure => running,
