@@ -5,8 +5,8 @@ node 'slave1.puppet' {
     provider => 'yum',
     }
     -> file { '/vagrant/conf.f/static.con':
-       ensure => 'file',
-       src => '/vagrant/conf.f/static.con',
+       ensure => 'present',
+       source => '/vagrant/conf.f/static.con',
        path => "/etc/nginx/conf.d/static.conf",
   }
     service { 'nginx':
