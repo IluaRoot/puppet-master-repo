@@ -16,11 +16,11 @@ class firewall {
 
 node 'slave1.puppet' {
   include install_nginx
-  -> file { 'Copy conf file slave1':
-       ensure => file,
-       source => '/vagrant/conf.f/static.conf',
-       path => "/etc/nginx/conf.d/",
-  }
+#  -> file { 'Copy conf file slave1':
+#       ensure => file,
+#       source => '/vagrant/conf.f/static.conf',
+#       path => "/etc/nginx/conf.d/",
+#  }
   -> include reload_nginx
 }
 
