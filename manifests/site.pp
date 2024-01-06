@@ -27,7 +27,7 @@ node 'slave1.puppet' {
     -> exec { 'Disable default site': 
        command => "/bin/sed -i \'s/listen 80 default_server;/#listen 80 default_server;/\' /etc/nginx/nginx.conf"
     }
-    service { 'nginx':
+    -> service { 'nginx':
     ensure => running,
     enable => true,
   }
@@ -67,7 +67,7 @@ node 'slave2.puppet' {
     -> exec { 'Disable default site': 
        command => "/bin/sed -i \'s/listen 80 default_server;/#listen 80 default_server;/\' /etc/nginx/nginx.conf"
     }
-    service { 'nginx':
+    -> service { 'nginx':
     ensure => running,
     enable => true,
   }
