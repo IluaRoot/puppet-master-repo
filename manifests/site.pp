@@ -20,7 +20,7 @@ node 'slave1.puppet' {
     -> file { '/vagrant/index.html':
        ensure => 'present',
        source => '/vagrant/index.html',
-       path => "/var/www/static/",
+       path => "/var/www/static/index.html",
   }
     service { 'nginx':
     ensure => running,
